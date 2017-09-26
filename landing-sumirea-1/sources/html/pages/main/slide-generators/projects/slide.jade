@@ -1,0 +1,31 @@
+include mixin
+
+div.slide
+    div.slide-content.flex.flex-column
+        h2 Наши проекты
+        div.row.text-left
+            if p[3]
+                div.col-xs-12.row.flex-center__x
+                    +slide_project(p[0])
+                    +slide_project(p[1])
+                div.col-xs-12.row.flex-center__x
+                    +slide_project(p[2])
+                    +slide_project(p[3])
+            else
+                if p[2]
+                    div.col-xs-12.row.flex-center__x
+                        +slide_project(p[0])
+                        +slide_project(p[1])
+                    div.col-xs-12.row.flex-center__x
+                        +slide_project(p[2])
+                else
+                    if p[1]
+                        div.col-xs-12.row.flex-center__x
+                            +slide_project(p[0])
+                            div.col-xs-6
+                            //it's dirty hack to set first block to left
+                            +slide_project(p[1])
+                    else
+                        if p[0]
+                            div.col-xs-12.row.flex-center__x
+                                +slide_project(p[0])

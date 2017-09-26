@@ -1,0 +1,17 @@
+include mixin
+
+div.slide
+    div.slide-content.flex.flex-column
+        h2 Подразделения
+        div.row.text-left
+            div.col-xs-12.row
+                +slide_movement(m[0])
+                +slide_movement(m[1])
+
+            if m[3]
+                div.col-xs-12.row
+                    +slide_movement(m[2])
+                    +slide_movement(m[3])
+            else
+                div.col-xs-12.row.flex-center__x
+                    +slide_movement(m[2])

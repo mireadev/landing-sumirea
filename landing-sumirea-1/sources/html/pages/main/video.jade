@@ -1,0 +1,16 @@
+section#first.section.full-screen
+    div.Vidage
+        div.Vidage__image
+        video#video.Vidage__video(preload="metadata", loop, autoplay, muted, data-autoplay)
+            source(data-src="assets/video/Team-Work.webm", type="video/webm")
+            source(data-src="assets/video/Team-Work.mp4", type="video/mp4")
+        div.Vidage__backdrop
+
+    div.video-logo__wrap
+        canvas.fireworks
+        div#su_logo.video-logo
+            img(src="assets/img/logo.png", draggable=false, onmousedown="return false", ondrop="return false")
+            h1 Студенческий союз МИРЭА
+
+    a(href='#about').video-btn.flex.flex-column.flex-center
+        div.icon.icon-down.scroll-help__icon

@@ -1,0 +1,18 @@
+div.col-xs-12
+    h3= project.title
+
+if project.photo
+    div.col-xs-12
+        img(src="assets/img/projects/" + project.photo)
+
+if project.description
+    div.col-xs-12
+        if project.icon
+            span(class!=project.icon).icon.margin-left__0-before
+        span.margin-bottom__20px= project.description
+
+div.col-xs-12.row
+    if project.link
+        div.col-xs-9.no-padding.margin-top__15px
+            span.icon.icon-vk.margin-left__0-before
+            a(href=project.link, target="_blank") Страница ВК

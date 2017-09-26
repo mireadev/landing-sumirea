@@ -1,0 +1,6 @@
+mixin panel(title, text)
+    .about-panels__item.col-xs-12.col-sm-6.col-lg-4
+        .panel
+            .panel-header(class!=attributes.class)
+                h3.panel-header__title.text-center= title
+            .panel-body.text-center= text

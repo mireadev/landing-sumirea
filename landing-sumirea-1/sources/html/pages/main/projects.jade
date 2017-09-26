@@ -1,0 +1,70 @@
+section.section.full-screen.text-center.slider
+    -
+        function getProjectObj(project) {
+        //title, link, description, icon, photo, specialCol
+            var p = {};
+            project[0] ? p.title = project[0] : '';
+            project[1] ? p.link = project[1] : '';
+            project[2] ? p.description = project[2] : '';
+            project[3] ? p.icon = project[3] : '';
+            project[4] ? p.photo = project[4] : '';
+            project[5] ? p.specialCol = project[5] : '';
+            return p;
+        }
+
+        function getProjectSlides(projects){
+            var slides = [], slide = [];
+
+            for(var i = 0; i < projects.length; i++){
+                if(projects[i]){
+                    if(i % 4 === 0 && i !== 0){
+                        slides.push(slide);
+                        slide = [];
+                    }
+
+                    slide.push(getProjectObj(projects[i]));
+                }
+            }
+
+            if(slide !== slides[slides.length - 1] && slide){
+                while(slide.length < 4){
+                    slide.push('');
+                }
+                slides.push(slide);
+            }
+
+            return slides;
+        }
+    -
+        var slides = getProjectSlides([
+                ['Киберспорт', 'https://vk.com/cybersportmirea', 'Организация чемпионатов и участие в турнирах.', 'icon-game'],
+                ['Военно-ролевая игра «Лес»', 'https://vk.com/vri_les', 'Игра по принципу «Зарница», несколькодневный выезд на природу, который собирает несколько сотен студентов вузов.', 'icon-tree'],
+                ['«Первокурсный КВН»', 'https://vk.com/kvn_mirea', 'Кубок по КВН среди студентов первого курса', 'icon-smile'],
+                ['Конкурс красоты', 'https://vk.com/sumirea', 'Весенний конкурс красоты для девушек', 'icon-like'],
+
+                ['Лагерь-семинар «Мы — команда»', 'https://vk.com/wearetheteam', 'Кое что большее, чем просто школа студенческого активация', 'icon-people'],
+                ['«Студенческая весна»', 'https://vk.com/sumirea', 'Традиционный конкурс творческих талантов', 'icon-star'],
+                ['Школа ведущих, свето- и звукорежиссуры', 'https://vk.com/shviz', 'Название говорит за себя — учим работать со сценой', 'icon-video'],
+                ['Медиашкола', 'https://vk.com/mediaschool', 'Образовательный проект по направлениям современных медиа — фото, видео, дизайн, редакторское дело. Проходит поддержке приглашённых специалистов.', 'icon-photo'],
+
+                ['Школа кураторов', 'https://vk.com/shkola_kuratorov', 'Мы ждем тебя. Стань наставником для первокурсников!', 'icon-curator'],
+                ['Тренинг центр', 'https://vk.com/tcmirea', 'Организация, подготовка и проведение навыковых, социально-психологических и бизнес-тренингов.', 'icon-curator'],
+                ['Android Club', 'https://vk.com/asc_mirea', 'Cтуденческое сообщество интересующихся разработкой для Android.', 'icon-curator'],
+                ['Учебные субботы', 'https://vk.com/sumirea', 'Дополнительные занятия по различным дисциплинам для лучшего понимания предмета', 'icon-curator'],
+
+                ['English club', 'https://vk.com/mirea_ec', 'Бесплатный курс обучения английскому языку, живое общение', 'icon-curator'],
+                ['Зимний бал', 'https://vk.com/balmirea14', 'Зимнее приключение', 'icon-music'],
+                ['ЧЕРЛИДИНГ в МИРЭА', 'https://vk.com/cheermirea5points', 'Красивые девушки', 'icon-like'],
+                ['Педагогический отряд «Априори»', 'https://vk.com/apriori.moscow', 'Семья и команда', 'icon-smile'],
+
+                ['Педагогический отряд «Атмосфера»', 'https://vk.com/atmosfera', 'С нами ярко!', 'icon-smile'],
+                ['Огненный клуб', 'https://vk.com/a_bakin', 'Мы горим, но не сгораем!', 'icon-fire'],
+                //ВЕЛОКАТАШКИ, автопарад, МЧС?
+                ['Чего-то не хватает?', 'https://vk.me/sumirea', 'Предложи и реализуй свой!', '', '', 'col-xs-3']
+            ]);
+
+    each slide in slides
+        - var j = 0; var p = [];
+        each project in slide
+            - p[j] = project; j++;
+        include slide-generators/projects/slide

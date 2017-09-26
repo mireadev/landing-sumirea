@@ -1,0 +1,8 @@
+mixin slide_movement(movement)
+    if movement.specialCol
+        div(class!=movement.specialCol).row.margin-top__15vh
+            include slide-content
+    else
+        div.col-xs-6.row.margin-top__15vh
+            include slide-content
+

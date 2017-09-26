@@ -1,0 +1,26 @@
+div.col-xs-12
+    h3= movement.title
+
+if movement.description
+    div.col-xs-12
+        div.margin-bottom__20px= movement.description
+
+div.col-xs-12.row
+    if movement.cabinet
+        div.col-xs-3.no-padding
+            span.icon.icon-man.margin-left__0-before
+            span= movement.cabinet
+    if movement.cabinet
+        if movement.link
+            div.col-xs-9
+                span.icon.icon-vk
+                a(href=movement.link, target="_blank") Связаться через ВК
+    else
+        if movement.link
+            div.col-xs-9.no-padding
+                span.icon.icon-vk.margin-left__0-before
+                a(href=movement.link, target="_blank") Связаться через ВК
+
+        if movement.internalBtn
+            div.col-xs-9.no-padding
+                a(href=movement.internalBtn) Подробнее

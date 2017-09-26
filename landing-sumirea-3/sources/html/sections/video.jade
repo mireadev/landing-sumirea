@@ -1,0 +1,35 @@
+include ../elements/button
+
+//a(href="#video").scroll.scroll-up 
+
+.nav-mobile.row.visible-xs
+
+section#video.video.row.flex-center__x
+    .video-overlay
+    .video-object
+        //video.video-object__media.hidden-xs(autoplay='autoplay', loop='loop', preload='auto')
+            source(src='video/test-back.mp4')
+
+    .video-nav.video-nav__desktop.col-xs-12.col-lg-10.row.hidden-xs.flex-y__start
+        .col-xs-12.row.flex-center__y.between-xs
+            .video-nav__logo.col-md-2.hidden-sm Студенческий союз МИРЭА
+            .video-nav__menu--wrap.col-xs-12.col-md-10
+                ul.video-nav__menu.flex.between-xs
+                    li
+                        a(href="#about").scroll Про организацию
+                    li
+                        a(href="#activity").scroll Деятельность
+                    li
+                        a(href="#projects").scroll Проекты
+                    li
+                        a(href="#teams").scroll Направления работы
+                    li
+                        a(href="#movements").scroll Отряды
+                    li
+                        a(href="#contacts").scroll Контакты
+                        
+    .visible-xs //this needed for btn below for centering
+
+    .video-action.col-xs-12.row.flex-center__x
+        //--+button("Смотреть")(class="btn-colors__white")
+        +button("Подробнее", "#about")(class="btn-colors__white scroll")

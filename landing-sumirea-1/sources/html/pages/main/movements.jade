@@ -1,0 +1,60 @@
+section.section.full-screen.text-center.slider
+    -
+        function getMovementObj(movement) {
+            //title, cabinet, link, description, specialCol, internalBtn
+            var m = {};
+            movement[0] ? m.title = movement[0] : '';
+            movement[1] ? m.cabinet = movement[1] : '';
+            movement[2] ? m.link = movement[2] : '';
+            movement[3] ? m.description = movement[3] : '';
+            movement[4] ? m.specialCol = movement[4] : '';
+            movement[5] ? m.internalBtn = movement[5] : '';
+            return m;
+        }
+
+        function getMovementSlide(movements){
+            var slide = [];
+            movements.forEach(function(movement){
+                if(movement){
+                    slide.push(getMovementObj(movement));
+                }
+            });
+            return slide;
+        }
+    -
+        var slides = [
+            getMovementSlide([
+                ['Профсоюз студентов', 'А-170',
+                    'https://vk.com/mtuprofkom', 'Профком студентов организует выплаты дотаций Правительства Москвы. Защита прав студентов.'],
+                ['Информационный центр', 'А-135',
+                    'https://vk.com/sumirea', 'Освещение деятельности организации: фото, видео, дизайн, социальные сети.'],
+                ['Подразделение разработки', 'А-135',
+                    'https://vk.com/mireadev', 'Разработка проектов на благо студентов. Курсы обучения программированию.'],
+                ['Досуговый центр', 'А-171',
+                    'https://vk.com/dcmirea', 'Мероприятия, праздники, концерты, свадьбы.']
+            ]),
+            getMovementSlide([
+                ['Спортивный клуб', 'А-129',
+                    'https://vk.com/skmirea', 'Спортсмены, соревнования, сборные.'],
+                ['Научное подразделение', 'А-171',
+                    'https://vk.com/nauka_sumirea', 'Конференции, олимпиады, студенческое научное сообщество.'],
+                ['Центр карьеры', 'А-166',
+                    'https://vk.com/ckmirea', 'Помощь в трудоустройстве.'],
+                ['Волонтёрский центр', 'A-171',
+                    'https://vk.com/volontermtu', 'Участие в волонтёрских мероприятиях.']
+            ]),
+            getMovementSlide([
+                ['Общий отдел', 'A-135',
+                    'https://vk.com/sumirea', 'Работа с документами.'],
+                ['Клубы по интересам', '',
+                    '', 'Хобби, увлечения. От клуба огня до КВН.', 'col-xs-6', '#projects'],
+                ['Не нашел того, что может быть интересно тебе?', '',
+                    'https://vk.me/sumirea', 'Предложи создать своё направление деятельности!', 'col-xs-6']
+            ])
+        ]
+
+    each slide in slides
+        - var i = 0; var m = [];
+        each movement in slide
+            - m[i] = movement; i++;
+        include slide-generators/movements/slide
